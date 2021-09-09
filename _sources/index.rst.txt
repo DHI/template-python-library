@@ -7,6 +7,8 @@ my_library: Template Python repository
 
 This repository serves as a template for creating a Python library
 
+.. image:: https://github.com/DHI/template-python-library/raw/main/images/new_repo.png
+
 .. toctree::
    
    getting_started.md
