@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "my_library"
+version = "0.0.1"
+dependencies = [
+    "numpy"
+]
+
+authors = [
+  { name="First Last", email="initials@dhigroup.com" },
+]
+description = "Useful library"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 2 - Pre-Alpha",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.optional-dependencies]
+dev = ["pytest","flake8","black","sphinx", "myst-parser","sphinx-book-theme"]
+test= ["pytest"]
+
+[project.urls]
+"Homepage" = "https://github.com/DHI/my_library"
+"Bug Tracker" = "https://github.com/DHI/my_library/issues"

@@ -8,3 +8,5 @@ This repository serves as a template for creating a Python library
     ![](images/new_repo.png)
 
 2. Change all occurences of `my_library` to match the name of your new library
+
+3. Consider if the [license](LICENSE) should be modified.
