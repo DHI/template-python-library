@@ -26,11 +26,12 @@ jobs:
         pip install build
     - name: Build package
       run: python -m build
+    
     - name: Archive built library
-        uses: actions/upload-artifact@v3
-        with:
-          name: library
-          path: dist/*
+      uses: actions/upload-artifact@v3
+      with:
+        name: library
+        path: dist/*
 
     # uncomment if you want to upload to PyPI
     #- name: Publish
