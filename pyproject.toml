@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest","flake8","black","sphinx", "myst-parser","sphinx-book-theme"]
+dev = ["pytest","flake8","black","mkdocs","mkdocstrings[python]", "mkdocs-material"]
 test= ["pytest"]
 
 [project.urls]
