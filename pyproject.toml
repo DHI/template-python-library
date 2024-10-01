@@ -51,3 +51,8 @@ notebooks = [
 [project.urls]
 "Homepage" = "https://github.com/DHI/my_library"
 "Bug Tracker" = "https://github.com/DHI/my_library/issues"
+
+
+[tool.ruff]
+# ignore long lines
+lint.ignore = ["E501"]
