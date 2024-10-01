@@ -23,6 +23,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Development Status :: 2 - Pre-Alpha",
     "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering",
 ]
 
