@@ -11,36 +11,42 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install build
-    - name: Build package
-      run: python -m build
-    
-    - name: Archive built library
-      uses: actions/upload-artifact@v3
-      with:
-        name: library
-        path: dist/*
+      - uses: actions/checkout@v3
 
-    # using a trusted publisher is recommended: 
-    # https://docs.pypi.org/trusted-publishers/
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
 
-    # this is the old way of doing it
-    # uncomment if you want to upload to PyPI
-    #- name: Publish
-    #  env:
-    #    TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-    #    TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-    #  run: |
-    #    twine upload dist/* 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build wheel twine
+
+      - name: Install package
+        run: pip install .[test]
+
+      - name: Test package
+        run: pytest
+
+      - name: Build package
+        run: python -m build
+
+      - name: Archive distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+      # using a trusted publisher is recommended:
+      # https://docs.pypi.org/trusted-publishers/
+      # uncomment if you want to upload to PyPI
+      # - name: Publish package distributions to PyPI
+      #   uses: pypa/gh-action-pypi-publish@release/v1
