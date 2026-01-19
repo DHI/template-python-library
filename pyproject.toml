@@ -41,9 +41,7 @@ dev = [
   "pytest",
   "ruff",
   "mypy",
-  "mkdocs",
-  "mkdocstrings[python]", 
-  "mkdocs-material"
+  "zensical"
 ]
 
 test= [

@@ -107,11 +107,25 @@ notebooks/          # Jupyter notebooks
 
 ## Documentation
 
-- Uses **MkDocs** with **Material theme**
-- Configured via `mkdocs.yml`
-- Uses **mkdocstrings** plugin for API documentation from docstrings
-- **Docstring style: NumPy** (not Google)
+### Documentation Philosophy
+
+This template follows a modern approach to documentation:
+
+- **Website documentation** (`docs/`) focuses on **user guides, tutorials, and examples** - the kind of content you can't get in an IDE
+- **API documentation** lives in **docstrings** for IDE consumption - developers see this when coding with autocomplete
+
+Write comprehensive NumPy-style docstrings in the code - these appear in VSCode, PyCharm, and other IDEs when users work with your library. The documentation website teaches users how to use the library through examples and guides.
+
+### Documentation Setup
+
+- Uses **Zensical** (modern static site generator by the Material for MkDocs team)
+- Configured via `mkdocs.yml` (Zensical maintains backward compatibility)
+- Uses `variant: classic` to maintain traditional Material for MkDocs look
+- Simple configuration with no plugins needed
+- **Docstring style: NumPy** (not Google) for IDE display
 - Docstrings should include executable examples that are tested with `make doctest`
+- Build docs with `make docs` or `zensical build`
+- Serve locally with `zensical serve`
 
 ## CI/CD
 
@@ -135,7 +149,7 @@ notebooks/          # Jupyter notebooks
 ## Dependencies
 
 - **Runtime**: numpy
-- **Development**: build, pytest, ruff, mypy, mkdocs, mkdocstrings, mkdocs-material
+- **Development**: build, pytest, ruff, mypy, zensical
 - **Testing**: pytest, pytest-cov, mypy
 - **Notebooks**: jupyter
 
