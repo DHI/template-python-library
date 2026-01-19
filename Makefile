@@ -24,7 +24,7 @@ coverage:
 	pytest --cov-report html --cov=$(LIB) tests/
 
 docs: FORCE
-	mkdocs build
+	zensical build
 
 clean:
 	python -c "import shutil; shutil.rmtree('dist', ignore_errors=True)"
